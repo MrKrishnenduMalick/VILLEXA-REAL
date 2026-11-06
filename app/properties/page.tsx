@@ -26,13 +26,10 @@ function PropertiesContent() {
   });
 
   return (
-    <div className="relative min-h-screen bg-midnight text-white pt-24 pb-20">
-      {/* Background Architectural Glow & Radial Lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-sapphire/20 via-royal/10 to-transparent pointer-events-none blur-3xl" />
-
+    <>
       {/* Top Reference Pill Indicator (02 Properties) matching reference */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-mono text-softwhite/80 tracking-widest shadow-sm">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-[11px] font-mono text-softwhite/90 tracking-widest shadow-md">
           <span className="font-semibold text-gold-champagne">02</span>
           <span>Properties</span>
         </div>
@@ -41,7 +38,7 @@ function PropertiesContent() {
       {/* =========================================================================
           SIGNATURE CURVED 3D CAROUSEL SECTION - EXACT MATCH TO REFERENCE IMAGE
       ========================================================================= */}
-      <section className="relative w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-2 mb-20">
+      <section className="relative z-10 w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-2 mb-20">
         <CurvedCarousel
           initialCategory={gridCategory}
           onEnquire={(prop) => {
@@ -51,32 +48,33 @@ function PropertiesContent() {
       </section>
 
       {/* =========================================================================
-          COMPREHENSIVE RESIDENCES ARCHITECTURAL INDEX (DETAILED GRID)
+          COMPREHENSIVE RESIDENCES ARCHITECTURAL INDEX (PREMIUM GLASS CARDS & MARBLE)
       ========================================================================= */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 border-t border-white/10">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 border-t border-white/15">
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span className="text-xs uppercase tracking-[0.3em] font-semibold text-gold-champagne block mb-2">
+            <span className="text-xs uppercase tracking-[0.32em] font-semibold text-gold-champagne block mb-2 drop-shadow-[0_0_8px_rgba(232,197,138,0.3)]">
               CURATED ARCHITECTURE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-white tracking-wide">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-wide">
               Complete Residences Catalogue
             </h2>
-            <p className="text-xs sm:text-sm text-softwhite/70 mt-2 max-w-xl font-light">
-              Explore individual floor arrangements, private garden layouts, and skyline vistas across our signature global developments.
+            <p className="text-xs sm:text-sm text-softwhite/80 mt-2 max-w-xl font-light leading-relaxed">
+              Explore individual floor arrangements, private garden layouts, and skyline vistas across our signature developments.
             </p>
           </div>
 
-          {/* Quick Filter Buttons */}
+          {/* Quick Filter Glass Pills */}
           <div className="flex items-center gap-2 flex-wrap">
             {['All', 'Apartments', 'Villas', 'Penthouses'].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setGridCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs uppercase tracking-[0.18em] transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition-all duration-300 ${
                   gridCategory === cat
-                    ? 'bg-gold-gradient text-midnight font-bold shadow-[0_0_15px_rgba(232,197,138,0.3)]'
-                    : 'bg-white/[0.04] text-softwhite/70 hover:text-white border border-white/10'
+                    ? 'bg-gold-gradient text-midnight font-bold shadow-[0_0_20px_rgba(232,197,138,0.45)] ring-1 ring-white/40'
+                    : 'bg-white/[0.06] backdrop-blur-md text-softwhite/80 hover:text-white border border-white/15 shadow-sm'
                 }`}
               >
                 {cat}
@@ -85,16 +83,16 @@ function PropertiesContent() {
           </div>
         </div>
 
-        {/* Property Grid */}
+        {/* Property Grid: Ultra-Premium Glass Transparent Cards with Marble Background */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProperties.map((prop) => (
             <div
               key={prop.id}
               onClick={() => setSelectedProperty(prop)}
-              className="group relative rounded-3xl overflow-hidden bg-midnight-light/60 border border-white/15 hover:border-gold-champagne/60 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_25px_rgba(232,197,138,0.2)] flex flex-col cursor-pointer"
+              className="group relative rounded-3xl overflow-hidden bg-white/[0.04] backdrop-blur-2xl border border-white/20 hover:border-gold-champagne/70 shadow-[0_20px_50px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.3)] hover:shadow-[0_25px_65px_rgba(0,0,0,0.9),0_0_35px_rgba(232,197,138,0.3)] transition-all duration-500 flex flex-col cursor-pointer"
             >
-              {/* Image Container */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/50">
+              {/* High-Definition Architectural Image Container */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-midnight-dark">
                 <Image
                   src={prop.image}
                   alt={prop.name}
@@ -102,52 +100,52 @@ function PropertiesContent() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-midnight-dark via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-transparent to-transparent opacity-90" />
 
-                {/* Top Category Tag */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] font-semibold text-gold-champagne bg-midnight/80 backdrop-blur-md border border-gold-champagne/30">
+                {/* Top Category Tag - Crystal Glass Pill */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] uppercase tracking-[0.22em] font-semibold text-gold-champagne bg-midnight/70 backdrop-blur-xl border border-gold-champagne/40 shadow-md">
                     {prop.category}
                   </span>
-                  <span className="text-xs font-mono font-medium text-gold-warm bg-midnight/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                  <span className="text-xs font-mono font-medium text-gold-warm bg-midnight/70 backdrop-blur-xl px-3 py-1 rounded-full border border-white/20 shadow-md">
                     {prop.price}
                   </span>
                 </div>
               </div>
 
-              {/* Card Body */}
-              <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
+              {/* Card Body - Frosted Glass Container with Specular Edges */}
+              <div className="p-6 flex-grow flex flex-col justify-between space-y-4 bg-gradient-to-b from-transparent via-midnight/40 to-midnight/80 backdrop-blur-xl border-t border-white/10">
                 <div>
-                  <h3 className="text-xl font-serif text-white group-hover:text-gold-warm transition-colors">
+                  <h3 className="text-xl font-serif text-white group-hover:text-gold-warm transition-colors tracking-wide">
                     {prop.name}
                   </h3>
-                  <p className="text-xs text-gold-champagne/90 tracking-wide mt-1">
+                  <p className="text-xs text-gold-champagne tracking-wider mt-1 font-medium">
                     {prop.tagline}
                   </p>
-                  <p className="text-xs text-softwhite/65 mt-2 line-clamp-2 font-light leading-relaxed">
+                  <p className="text-xs text-softwhite/70 mt-2 line-clamp-2 font-light leading-relaxed">
                     {prop.description}
                   </p>
                 </div>
 
-                {/* Specs */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-softwhite/70">
+                {/* Specs Row with Gold Highlights */}
+                <div className="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-softwhite/80">
                   <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1.5">
                       <Bed className="w-3.5 h-3.5 text-gold-champagne" />
                       {prop.bedrooms}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1.5">
                       <Bath className="w-3.5 h-3.5 text-gold-champagne" />
                       {prop.bathrooms}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1.5">
                       <Maximize2 className="w-3.5 h-3.5 text-gold-champagne" />
                       {prop.area}
                     </span>
                   </div>
 
-                  <span className="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider font-semibold text-gold-champagne group-hover:translate-x-1 transition-transform">
-                    <span>View Specs</span>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold text-gold-champagne group-hover:text-gold-warm group-hover:translate-x-1 transition-all">
+                    <span>VIEW SPECS</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -158,11 +156,21 @@ function PropertiesContent() {
       </section>
 
       {/* =========================================================================
-          PRIVATE VIEWING CALLOUT BANNER
+          PRIVATE VIEWING CALLOUT BANNER WITH MARBLE & GOLDEN STRIP ACCENT
       ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-        <div className="relative rounded-3xl p-8 sm:p-12 overflow-hidden bg-gradient-to-r from-sapphire/80 via-midnight to-sapphire-dark border border-gold-champagne/40 shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-2 text-center md:text-left">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+        <div className="relative rounded-3xl p-8 sm:p-12 overflow-hidden bg-gradient-to-r from-sapphire/80 via-midnight/90 to-sapphire-dark/90 backdrop-blur-2xl border border-gold-champagne/40 shadow-[0_25px_70px_rgba(0,0,0,0.85)] flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Golden Ribbon under banner */}
+          <div className="absolute -top-12 -right-12 w-96 h-96 opacity-20 mix-blend-screen pointer-events-none">
+            <Image
+              src="/images/auric-flow-gold-ribbon.jpg"
+              alt="Golden Ribbon Accent"
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <div className="space-y-2 text-center md:text-left relative z-10">
             <span className="text-xs uppercase tracking-[0.25em] font-semibold text-gold-champagne flex items-center justify-center md:justify-start gap-2">
               <Sparkles className="w-4 h-4" />
               <span>CONFIDENTIAL PORTFOLIO ACQUISITION</span>
@@ -170,14 +178,14 @@ function PropertiesContent() {
             <h3 className="text-2xl sm:text-3xl font-serif text-white tracking-wide">
               Seeking an Off-Market Flagship Estate?
             </h3>
-            <p className="text-xs sm:text-sm text-softwhite/75 font-light max-w-xl">
+            <p className="text-xs sm:text-sm text-softwhite/80 font-light max-w-xl">
               Certain trophy villas and ultra-exclusive penthouses are held in discreet private circulation. Inquire with our acquisition desk for bespoke access.
             </p>
           </div>
 
           <Link
             href="/contact"
-            className="shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-full text-xs uppercase tracking-[0.22em] font-semibold text-midnight-dark bg-gold-gradient hover:brightness-110 transition-all duration-300 shadow-[0_0_20px_rgba(232,197,138,0.4)]"
+            className="relative z-10 shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-full text-xs uppercase tracking-[0.22em] font-semibold text-midnight-dark bg-gold-gradient hover:brightness-110 transition-all duration-300 shadow-[0_0_25px_rgba(232,197,138,0.5)] ring-1 ring-white/40"
           >
             <PhoneCall className="w-4 h-4 text-midnight-dark" />
             <span>Consult Private Office</span>
@@ -193,15 +201,51 @@ function PropertiesContent() {
           window.location.href = `/contact?interest=${encodeURIComponent(prop.name)}`;
         }}
       />
-    </div>
+    </>
   );
 }
 
 export default function PropertiesPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-midnight flex items-center justify-center text-gold-champagne text-sm uppercase tracking-widest">Loading Residences...</div>}>
-      <PropertiesContent />
-    </Suspense>
+    <div className="relative min-h-screen bg-midnight text-white pt-24 pb-20 overflow-hidden">
+      {/* Global Marble & Golden Strip Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Calacatta White Marble with Gold Veins background */}
+        <div className="absolute inset-0 opacity-25 mix-blend-screen">
+          <Image
+            src="/images/calacatta-marble-gold-veins.jpg"
+            alt="Calacatta White Marble Background"
+            fill
+            priority
+            className="object-cover object-top"
+          />
+        </div>
+
+        {/* Auric Flow Golden Ribbon Strips */}
+        <div className="absolute top-10 -right-32 w-[800px] h-[700px] opacity-30 mix-blend-screen blur-[1px]">
+          <Image
+            src="/images/auric-flow-gold-ribbon.jpg"
+            alt="Gold Ribbon Strip"
+            fill
+            className="object-contain"
+          />
+        </div>
+        <div className="absolute top-2/3 -left-40 w-[800px] h-[700px] opacity-25 mix-blend-screen blur-[1px] rotate-45">
+          <Image
+            src="/images/auric-flow-gold-ribbon.jpg"
+            alt="Gold Ribbon Accent"
+            fill
+            className="object-contain"
+          />
+        </div>
+
+        {/* Ambient Twilight Blue Lighting */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-sapphire/30 via-royal/15 to-transparent blur-3xl" />
+      </div>
+
+      <Suspense fallback={<div className="min-h-screen bg-midnight flex items-center justify-center text-gold-champagne text-sm uppercase tracking-widest">Loading Residences...</div>}>
+        <PropertiesContent />
+      </Suspense>
+    </div>
   );
 }
-
